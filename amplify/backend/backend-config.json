@@ -1,0 +1,144 @@
+{
+  "api": {
+    "amplifytoolkit": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "addIotPolicyToFederatedUser"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "echoApi"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "awstoolkitd5af8046d5af8046": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OPTIONAL",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    },
+    "userPoolGroups": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "awstoolkitd5af8046d5af8046"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups"
+    }
+  },
+  "function": {
+    "addIotPolicyToFederatedUser": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "echoApi": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "interactions": {
+    "chatbot": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lex"
+    }
+  },
+  "iotpubsub": {
+    "iotpolicy": {
+      "providerPlugin": "awscloudformation",
+      "service": "IoT-Message-Viewer"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_addIotPolicyToFederatedUser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "addIotPolicyToFederatedUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_addIotPolicyToFederatedUser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "addIotPolicyToFederatedUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_echoApi_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "echoApi"
+        }
+      ]
+    },
+    "AMPLIFY_function_echoApi_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "echoApi"
+        }
+      ]
+    },
+    "AMPLIFY_interactions_chatbot_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "interactions",
+          "resourceName": "chatbot"
+        }
+      ]
+    },
+    "AMPLIFY_interactions_chatbot_s3Key": {
+      "usedBy": [
+        {
+          "category": "interactions",
+          "resourceName": "chatbot"
+        }
+      ]
+    }
+  }
+}
