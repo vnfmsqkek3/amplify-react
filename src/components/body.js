@@ -13,13 +13,10 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Footer from './footer.js';
 import useStyles from './common/material-ui-styles.js';
 import UserInfo from './widgets/user-info';
-import Ec2DescribeInstances from './widgets/ec2-describe-instances';
 import IoTMessageViewer from './widgets/iot-message-viewer';
 import DemoWidget from './widgets/demo-widget';
-import RedshiftDataApi from './widgets/redshift-data-api';
-import ApiGateway from './widgets/api-gateway';
-import LexChatbot from './widgets/lex-chatbot';
 import { store, view } from '@risingstack/react-easy-state';
+import DeviceViewer from './widgets/DeviceViewer.js'
 
 const state = store({
   widgets: [
@@ -29,29 +26,14 @@ const state = store({
       id: 'cognito-info',
     },
     {
-      component: Ec2DescribeInstances,
-      displayName: 'EC2 Instances',
-      id: 'ec2-instances',
+      component: DeviceViewer,
+      displayName: 'Device Info',
+      id: 'device-viewer',
     },
     {
       component: IoTMessageViewer,
       displayName: 'IoT Message Viewer',
       id: 'iot-message-viewer',
-    },
-    {
-      component: RedshiftDataApi,
-      displayName: 'Redshift Data API',
-      id: 'redshift-data-api',
-    },
-    {
-      component: ApiGateway,
-      displayName: 'API Gateway',
-      id: 'api-gateway-widget',
-    },
-    {
-      component: LexChatbot,
-      displayName: 'Lex Chatbot',
-      id: 'chatbot-widget',
     },
     {
       component: DemoWidget,

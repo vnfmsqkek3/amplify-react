@@ -221,9 +221,6 @@ function subscribeToTopic() {
 //------------------------------------------------------------------------------
 function sendMessage() {
   // Fired when user clicks the publish button:
-  const messageContent = {
-    msg: state.publishMessage
-  };
   PubSub.publish(state.publishTopicInput, JSON.parse(state.publishMessage));
 }
 
